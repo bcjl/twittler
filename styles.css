@@ -4,4 +4,24 @@ body{
 
 .indtweet{
 	font-size:120%;
+	border: 2px solid;
+    border-radius: 25px;
+}
+
+.newtweets #new{
+	border-radius: 3px;
+	background-color: #06C;
+	border-color: #105296;
+	border: 1px solid #999;
+	border-bottom-width: 3px;
+	color: white;
+	font-size: .9em;
+	font-weight: bold;
+	padding: .5em 1em;
+	text-decoration: none;
+}
+
+.tweetbody div {
+	text-align: center;
+
 }

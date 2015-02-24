@@ -8,24 +8,28 @@
   <body>
 
     <script>
-      var genTweets = function(){
+      var latestcount = 0;
+      var updateTweets = function(){
 
         var $body = $('body .tweetbody');
-        $body.find(".indtweet").remove();
+        // $body.find(".indtweet").remove();
         //$body.html('<button id="new">Get New Tweets</button>');
 
         var index = streams.home.length - 1;
-        while(index >= 0){
+        while(index >= latestcount){
           var tweet = streams.home[index];
           var $tweet = $('<div class="indtweet"></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
+          var temporalstuff = "" + tweet.shortdate + " " + tweet.timestamp;
+          var messagebody = '@' + tweet.user + ': ' + tweet.message;
+          $tweet.text(messagebody +" Time: "+ temporalstuff);
           $tweet.appendTo($body);
           index -= 1;
         }
-
+        latestcount = streams.home.length;
       };
 
-      $(document).ready(function(){$("#new").on("click", genTweets);});
+      $(document).ready(function(){$("#new").on("click", updateTweets);});
+
     </script>
 
     <div class="newtweets">

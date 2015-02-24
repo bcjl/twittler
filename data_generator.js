@@ -13,6 +13,9 @@ streams.users.mracus = [];
 streams.users.douglascalhoun = [];
 window.users = Object.keys(streams.users);
 
+//custom one
+var monthsarray = ["Jan", "Feb", "March", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
 // utility function for adding tweets to our data structures
 var addTweet = function(newTweet){
   var username = newTweet.user;
@@ -42,7 +45,11 @@ var generateRandomTweet = function(){
   var tweet = {};
   tweet.user = randomElement(users);
   tweet.message = randomMessage();
-  tweet.created_at = new Date();
+  var date = new Date();
+  tweet.created_at = date;
+  //additional timestamp
+  tweet.shortdate = "" + monthsarray[date.getMonth()] + " " + date.getDate();
+  tweet.timestamp = "" + date.getHours() + ":" + date.getMinutes();
   addTweet(tweet);
 };
 
