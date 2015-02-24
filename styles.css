@@ -2,10 +2,29 @@ body{
   /* rules go here */
 }
 
+#navlist li{
+	display: inline;
+	float: right;
+	padding-right:10px;
+}
+
+#navlist #logo {
+	height:50px;
+	width:50px;
+	float: left;
+}
+
 .indtweet{
 	font-size:120%;
 	border: 2px solid;
     border-radius: 25px;
+}
+
+.newtweets{
+	position: relative;
+	left: 40%;
+	display: inline;
+
 }
 
 .newtweets #new{
@@ -22,6 +41,12 @@ body{
 }
 
 .tweetbody div {
-	text-align: center;
+	position: relative;
+  	left: 28%;
+  	width:40%;
+}
 
+.timeline {
+	position:absolute;
+	top:10%;
 }
