@@ -9,22 +9,16 @@ body{
 }
 
 #navlist #logo {
-	height:50px;
-	width:50px;
+	height:40px;
+	width:40px;
 	float: left;
-}
-
-.indtweet{
-	font-size:120%;
-	border: 2px solid;
-    border-radius: 25px;
+	padding-left: 10%;
 }
 
 .newtweets{
 	position: relative;
-	left: 40%;
+	left: 30%;
 	display: inline;
-
 }
 
 .newtweets #new{
@@ -40,10 +34,29 @@ body{
 	text-decoration: none;
 }
 
-.tweetbody div {
-	position: relative;
+
+.indtweet{
+	font-size:110%;
+}
+
+.tweetholder{
+	border: 2px solid;
+    border-radius: 25px;
+    padding:10px;
+    margin:10px;
+    position: relative;
   	left: 28%;
   	width:40%;
+}
+
+.tweetholder .user{
+	font-weight: bold;
+	font size:130%;
+}
+
+
+.tweetbody div {
+
 }
 
 .timeline {

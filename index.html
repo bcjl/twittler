@@ -7,7 +7,6 @@
   </head>
   <body>
       <nav>
-
         <ul id="navlist">
           <a href=""><img id="logo" src="./imgs/Fish_Icon.png"></a>
           <li><a href="">Sign Up</a></li>          
@@ -21,7 +20,7 @@
     </nav>
 
     <div class="timeline">
-      <ul>
+      <ul class = 'timelineul'>
        <li>1</li>
        <li>2</li>
        <li>3</li>
@@ -43,18 +42,57 @@
         var index = streams.home.length - 1;
         while(index >= latestcount){
           var tweet = streams.home[index];
+
+          var $tweetcontainer = $('<p class="tweetholder"></p>');
+          var $user = $('<button id="user" data-id="' + tweet.user + '"></button>');
           var $tweet = $('<div class="indtweet"></div>');
+          var $timestamp = $('<div class="timestamp"></div>');
+
+          var user = '@' + tweet.user + ': ';
+          var messagebody = tweet.message;
           var temporalstuff = "" + tweet.shortdate + " " + tweet.timestamp;
-          var messagebody = '@' + tweet.user + ': ' + tweet.message;
-          $tweet.text(messagebody +" Time: "+ temporalstuff);
-          $tweet.appendTo($body);
+
+          $user.text(user);          
+          $tweet.text(messagebody);
+          $timestamp.text(temporalstuff);
+
+          // $user.appendTo($tweetcontainer);
+          // $tweet.appendTo($tweetcontainer);
+          // $timestamp.appendTo($tweetcontainer);
+          $tweetcontainer.append($user, $tweet, $timestamp)
+          $tweetcontainer.appendTo($body);
           index -= 1;
         }
         latestcount = streams.home.length;
       };
 
-      $(document).ready(function(){$("#new").on("click", updateTweets);});
+      $(document).ready(function(){
+        $("#new").on("click", updateTweets);
+      });
 
+
+    // timeline stuff goes here
+
+    $(document).ready(function(){
+      $("body").on("click","#user", function(){
+        var user = $(this).data("id");
+
+        var $timeline = $('body .timeline .timelineul');
+        $timeline.find("li").remove();
+
+       for(var i = 0; i < streams.home.length; i++){
+          console.log(i);
+          var tweet = streams.home[i];
+          var $timelineitem = $('<li></li>');
+          var timelineitem = tweet.timestamp;
+
+          if(user === tweet.user){
+            $timelineitem.text(timelineitem);
+            $timeline.append($timelineitem);
+          }
+        }
+      })
+    });
     </script>
 
 
